@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="my-4">Movie List</h1>
+<div class="list-group">
+    {% for movie in movies %}
+    <a href="{% url 'movies:detail' pk=movie.pk %}" class="list-group-item list-group-item-action">
+        <h5>{{ movie.title }}</h5>
+        <p>{{ movie.description|truncatewords:20 }}</p>
+        <p><strong>Rating:</strong> {{ movie.rating }}</p>
+    </a>
+    {% empty %}
+    <p>No movies available.</p>
+    {% endfor %}
+</div>
+{% endblock %}
