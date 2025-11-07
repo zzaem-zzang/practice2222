@@ -45,9 +45,12 @@ def update(request, pk):
     return render(request, 'movies/update.html', {'form': form})
 
 def delete(request, pk):
-    movie = get_object_or_404(Movie, pk=pk)
-    movie.delete()
-    return redirect('movies:index')
+    if request.method =='POST':
+        movie = get_object_or_404(Movie, pk=pk)
+        movie.delete()
+        return redirect('movies:index')
+    else:
+        return render(request, 'movies/index.html')
 
 def comments_delete(request, pk, comment_pk):
     comment = get_object_or_404(Comment, pk=comment_pk)

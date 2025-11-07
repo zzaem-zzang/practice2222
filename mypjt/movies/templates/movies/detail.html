@@ -29,14 +29,14 @@
     <div class="mb-3">
         {{ form.content }}
     </div>
-    <button type="submit" class="btn btn-primary">Submit Comment</button>
+    <button type="submit" class="btn btn-primary">제출</button>
 </form>
 
 <div class="mt-3">
-    <a href="{% url 'movies:update' pk=movie.pk %}" class="btn btn-warning">Edit Movie</a>
+    <a href="{% url 'movies:update' pk=movie.pk %}" class="btn btn-warning">UPDATE</a>
     <form method="post" action="{% url 'movies:delete' pk=movie.pk %}" class="d-inline">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">Delete Movie</button>
+        <button type="submit" class="btn btn-danger">Delete</button>
     </form>
 </div>
 
